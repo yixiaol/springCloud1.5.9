@@ -1,0 +1,22 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8762
+  
+spring:
+  application:
+    name: eurekaclient
+  cloud:
+    config:
+      discovery:
+        enabled: true # 通过服务发现的方式去找配置中心
+        service-id: config # 配置中心的名字，直接配置名称可以在配置中心集群的时候实现负载均衡
+      profile: base # 对应配置中心文件的${profile}部分
+      name: serviceconfig #指定配置文件名字
+#忽略 curl -X POST http://localhost:8762/refresh   请求的权限拦截
+management: 
+  security: 
+    enabled: false

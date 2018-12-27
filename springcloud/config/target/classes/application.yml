@@ -1,0 +1,26 @@
+server:
+  port: 8888
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: ${spring.cloud.client.ipAddress}
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  application:
+    name: config
+  profiles:
+    active: native  # 配置使用本地存储
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:properties/ # 搜索src/main/resource 下的properties文件夹下的文件
+
+management:
+  security:
+    enabled: false

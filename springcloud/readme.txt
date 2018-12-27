@@ -1,0 +1,1 @@
+服务启动顺序 eurekaServer -> eurekaclient  -> gateway

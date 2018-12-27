@@ -1,0 +1,1 @@
+使用bootstrap.yml文件，该文件会先于application.yml被加载，spring-cloud相关的属性必须配置在bootstrap.properties中，因为config的相关配置会先于application.properties，而bootstrap.properties的加载也是先于application.properties。
